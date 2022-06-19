@@ -16,22 +16,32 @@
     <script src="jQuery.js"></script>
     <script src="client.js"></script>
 
+    <link rel="stylesheet" href="style.css">
+
     <!--<link rel="stylesheet" href="style.css">
 </head>-->
 
-<input class="firstIn" placeholder="First Name">
+<header>
+    <h1>Add Employee:</h1>
+</header>
+
+
+<body class="background">
+
+    <main>
+        <input class="firstIn" placeholder="First Name">
 <input class="lastIn" placeholder="Last Name">
 <input class="employeeIn" placeholder="Employee ID" type="number">
 <input class="titleIn" placeholder="Title">
 <input class="annualIn" placeholder="Annual Salary" type="number">
 
 <button id="submit">submit</button>
+    </main>
 
-
-<body>
     <main>
-        <table>
-            <thead>
+    <h1>Employees</h1>
+
+        <table class="table" width="300">
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -40,18 +50,16 @@
                     <th>Annual Salary</th>
                     <th></th>
                 </tr>
-            </thead>
-
-            <tbody class="table">
-                <!--<tr class="row">
-                    <td class="column"></td>
-                </tr>-->
-
-            </tbody>
         </table>
 
         
     </main>
+
+    <p>Total Monthly: 
+        <span class="monthlySum">0</span>
+    </p>
+
+
 
     <script src="" async defer></script>
 </body>
