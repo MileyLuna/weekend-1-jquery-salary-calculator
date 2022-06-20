@@ -4,12 +4,10 @@ function onReady(){
     console.log('in onReady');
 
     $('#submit').on('click', hitIt);
-    $('.deleteButton').on('click', deleteButton);
+    $('.document').on('click', deleteButton);
 
+}
 
-    //$('#sumbit').change('click', 'td', totalMonthly);
-
-};
 
 function hitIt(){
     console.log('in hitIt');
@@ -43,29 +41,49 @@ function hitIt(){
     $('.annualIn').val('');
 
 
+//new variable for annualSum
+        let newEmployee ={
+            fName: employeeName,
+            lName: employeeLast,
+            id: employeeId,
+            title: employeeId,
+            annual: employeeAnnual
+    };
 
-
-//$('.monthlySum').text(employeeAnnual);
-
+    monethlySum.push(newEmployee);
 
 
     
-    //---------red background
+    //---------red background once limit is hit
     //changed background if total hit red  
     // if (sum = 20000){
         //$('.background').css('background-color','red');
     //}
 
-    //----- delete
+    
+}
 
-    deleteButton();
-    }
+//function to delete selected row
+    function deleteButton(){
+    console.log('in deleteButton');
+    $(this).closest("tr").remove();
+}
+
+
+
 
 
     // loop through value of employee annual / by 12 for monthly 
-// append new value to $(.monthlysum).append(``)
-// };
 
+let monthlySum = [];
+
+function annualSum(){
+    for (let i = 0; i < monthlySum.length; i++){
+    sum += monthlySum[i].annual;
+    };
+    
+
+};
 // let sum = 0;
 // let employeeAnnual = $('.annualIn').val();
 
@@ -81,12 +99,3 @@ function hitIt(){
 
 // };
 
-
-
-//----Delete button----
-
-// function deleteButton(){
-//     console.log('in deleteButton');
-//     if ()
-//     $(this).closest("tr").remove();
-// };
