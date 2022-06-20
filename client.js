@@ -4,6 +4,8 @@ function onReady(){
     console.log('in onReady');
 
     $('#submit').on('click', hitIt);
+    $('.deleteButton').on('click', deleteButton);
+
 
     //$('#sumbit').change('click', 'td', totalMonthly);
 
@@ -28,6 +30,7 @@ function hitIt(){
         `<td>${employeeId}</td>`,
         `<td>${employeeTitle}</td>`,
         `<td>${employeeAnnual}</td>`,
+        `<td><button class="deleteNow"> Delete </button></td>`,
         `</tr>`
     );
 
@@ -41,23 +44,27 @@ function hitIt(){
 
 
 
-    //add annual salary and divide by 12 for monthly total
-    
-    //append monthly total
 
-$('.monthlySum').text(employeeAnnual);
+//$('.monthlySum').text(employeeAnnual);
 
 
 
     
-
+    //---------red background
     //changed background if total hit red  
     // if (sum = 20000){
         //$('.background').css('background-color','red');
     //}
 
+    //----- delete
 
-};
+    deleteButton();
+    }
+
+
+    // loop through value of employee annual / by 12 for monthly 
+// append new value to $(.monthlysum).append(``)
+// };
 
 // let sum = 0;
 // let employeeAnnual = $('.annualIn').val();
@@ -74,6 +81,12 @@ $('.monthlySum').text(employeeAnnual);
 
 // };
 
-// loop through value of employee annual / by 12 for monthly 
-// append new value to $(.monthlysum).append(``)
+
+
+//----Delete button----
+
+// function deleteButton(){
+//     console.log('in deleteButton');
+//     if ()
+//     $(this).closest("tr").remove();
 // };
