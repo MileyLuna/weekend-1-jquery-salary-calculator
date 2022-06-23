@@ -2,9 +2,11 @@ $(onReady);
 
 function onReady(){
     console.log('in onReady');
-
+    //call submit button on hitIt function
     $('#submit').on('click', hitIt);
-    $('.document').on('click', deleteButton);
+
+    //on delete button click perform deleteButton function
+    $(document).on('click', '.deleteNow', deleteButton);
 
 }
 
@@ -50,7 +52,7 @@ function hitIt(){
             annual: employeeAnnual
     };
 
-    monethlySum.push(newEmployee);
+    //monethlySum.push(newEmployee);
 
 
     
@@ -59,14 +61,14 @@ function hitIt(){
     // if (sum = 20000){
         //$('.background').css('background-color','red');
     //}
-
+    
     
 }
 
 //function to delete selected row
     function deleteButton(){
     console.log('in deleteButton');
-    $(this).closest("tr").remove();
+    $(this).closest('tr').remove();
 }
 
 
@@ -75,15 +77,9 @@ function hitIt(){
 
     // loop through value of employee annual / by 12 for monthly 
 
-let monthlySum = [];
-
-function annualSum(){
-    for (let i = 0; i < monthlySum.length; i++){
-    sum += monthlySum[i].annual;
-    };
     
 
-};
+// };
 // let sum = 0;
 // let employeeAnnual = $('.annualIn').val();
 
