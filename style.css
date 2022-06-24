@@ -1,38 +1,23 @@
-h1,
-p,
-th,
-td {
+h1,p,th,td {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: left;
 
-}
+};
 
-;
-
-table,
-th,
-td {
+.table, th,td {
     border: 1px solid;
-}
+};
 
-;
-
-table {
+.table {
     width: 100%;
     empty-cells: show;
-}
-
-;
+};
 
 th {
     height: 50px;
-}
-
-;
+};
 
 p {
     text-align: right;
-}
-
-;
+};
 

@@ -6,7 +6,7 @@ function onReady() {
     $('#submit').on('click', hitIt);
 
     //perform deleteButton function when the deleteNow button is click
-    $(document).on('click', '.deleteNow', deleteButton);
+    $(document).on('click', '.deleteBtn', deleteButton);
 
 }
 
@@ -27,15 +27,15 @@ function hitIt() {
     };
 
     //send vaules to the table
-    $('.table').append(
-        `<tr>`,
-        `<td>${employeeInfo.name}</td>`,
-        `<td>${employeeInfo.last}</td>`,
-        `<td>${employeeInfo.empId}</td>`,
-        `<td>${employeeInfo.title}</td>`,
-        `<td>${employeeInfo.annualSal}</td>`,
-        `<td><button class="deleteNow"> Delete </button></td>`,
-        `</tr>`
+    $('#target').append(
+        `<tr>
+        <td>${employeeInfo.name}</td>
+        <td>${employeeInfo.last}</td>
+        <td>${employeeInfo.empId}</td>
+        <td>${employeeInfo.title}</td>
+        <td>${employeeInfo.annualSal}</td>
+        <td><button class="deleteBtn"> Delete </button></td>
+        </tr>`
     );
 
 
