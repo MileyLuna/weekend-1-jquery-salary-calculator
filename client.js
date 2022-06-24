@@ -1,35 +1,39 @@
 $(onReady);
 
-function onReady(){
+function onReady() {
     console.log('in onReady');
     //call submit button on hitIt function
     $('#submit').on('click', hitIt);
 
-    //on delete button click perform deleteButton function
+    //perform deleteButton function when the deleteNow button is click
     $(document).on('click', '.deleteNow', deleteButton);
 
 }
 
+let employees = [];
 
-function hitIt(){
+//submit button function
+function hitIt() {
     console.log('in hitIt');
-    
-    //create  new variables 
-    let employeeName = $('.firstIn').val();
-    let employeeLast = $('.lastIn').val();
-    let employeeId = $('.employeeIn').val();
-    let employeeTitle = $('.titleIn').val();
-    let employeeAnnual = $('.annualIn').val();
 
-    //check if button works and input submits into table
-    // if statement to not input empty value that will create white space
+    //create objects to collect values from inputs
+    let employeeInfo = {
+
+        name: $('.firstIn').val(),
+        last: $('.lastIn').val(),
+        empId: $('.employeeIn').val(),
+        title: $('.titleIn').val(),
+        annualSal: $('.annualIn').val()
+    };
+
+    //send vaules to the table
     $('.table').append(
         `<tr>`,
-        `<td>${employeeName}</td>`,
-        `<td>${employeeLast}</td>`,
-        `<td>${employeeId}</td>`,
-        `<td>${employeeTitle}</td>`,
-        `<td>${employeeAnnual}</td>`,
+        `<td>${employeeInfo.name}</td>`,
+        `<td>${employeeInfo.last}</td>`,
+        `<td>${employeeInfo.empId}</td>`,
+        `<td>${employeeInfo.title}</td>`,
+        `<td>${employeeInfo.annualSal}</td>`,
         `<td><button class="deleteNow"> Delete </button></td>`,
         `</tr>`
     );
@@ -42,56 +46,39 @@ function hitIt(){
     $('.titleIn').val('');
     $('.annualIn').val('');
 
+    //push object into empty array to use for monthly total
+    employees.push(employeeInfo);
+    //call totalSalary to action
+    totalSalary();
 
-//new variable for annualSum
-        let newEmployee ={
-            fName: employeeName,
-            lName: employeeLast,
-            id: employeeId,
-            title: employeeId,
-            annual: employeeAnnual
+};
+
+//funtion to calculate monthly total
+function totalSalary() {
+    //loop through annual salary and divide by 12 for monthly total
+    console.log('in totalSalary');
+    let sum = 0;
+    for (let i = 0; i < employees.length; i++) {
+        //turn string into number
+        sum += Number(employees[i].annualSal);
     };
+    //create new variable and divide annual salaray by 12 to get monthly total
+    let totalMonthly = Math.round(sum / 12);
 
-    //monethlySum.push(newEmployee);
+    if (totalMonthly > 20000) {
+        $('.calculations').css('color','red');
 
+    };
+    //send the new variable value over to HTML paragraph
+    $('.monthlySum').html(`$  ${totalMonthly}`);
 
-    
-    //---------red background once limit is hit
-    //changed background if total hit red  
-    // if (sum = 20000){
-        //$('.background').css('background-color','red');
-    //}
-    
-    
-}
+};
 
 //function to delete selected row
-    function deleteButton(){
+function deleteButton() {
     console.log('in deleteButton');
+    //'this' button to remove closest table row
     $(this).closest('tr').remove();
 }
 
-
-
-
-
-    // loop through value of employee annual / by 12 for monthly 
-
-    
-
-// };
-// let sum = 0;
-// let employeeAnnual = $('.annualIn').val();
-
-
-// function totalMonthly(){
-//     console.log('in totalMonthly');
-
-// for (let i = 0; i < employeeAnnual.length; i++){
-//     sum += employeeAnnual[i];
-// }
-// return sum;
-
-
-// };
 
